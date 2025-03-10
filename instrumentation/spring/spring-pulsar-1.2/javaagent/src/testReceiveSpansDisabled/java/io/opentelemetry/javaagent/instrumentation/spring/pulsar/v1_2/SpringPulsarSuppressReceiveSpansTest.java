@@ -8,7 +8,7 @@ package io.opentelemetry.javaagent.instrumentation.spring.pulsar.v1_2;
 import static io.opentelemetry.api.trace.SpanKind.CONSUMER;
 import static io.opentelemetry.api.trace.SpanKind.PRODUCER;
 
-import io.opentelemetry.instrumentation.spring.pulsar.v1_0.AbstractSpringPulsarTest;
+import io.opentelemetry.instrumentation.spring.pulsar.v1_2.AbstractSpringPulsarTest;
 
 class SpringPulsarSuppressReceiveSpansTest extends AbstractSpringPulsarTest {
 

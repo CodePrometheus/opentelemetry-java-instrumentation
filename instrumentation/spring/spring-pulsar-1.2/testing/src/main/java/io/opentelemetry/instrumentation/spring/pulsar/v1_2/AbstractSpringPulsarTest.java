@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.instrumentation.spring.pulsar.v1_0;
+package io.opentelemetry.instrumentation.spring.pulsar.v1_2;
 
 import static io.opentelemetry.sdk.testing.assertj.OpenTelemetryAssertions.equalTo;
 import static io.opentelemetry.sdk.testing.assertj.OpenTelemetryAssertions.satisfies;
@@ -15,6 +15,7 @@ import static io.opentelemetry.semconv.incubating.MessagingIncubatingAttributes.
 import static io.opentelemetry.semconv.incubating.MessagingIncubatingAttributes.MESSAGING_MESSAGE_ID;
 import static io.opentelemetry.semconv.incubating.MessagingIncubatingAttributes.MESSAGING_OPERATION;
 import static io.opentelemetry.semconv.incubating.MessagingIncubatingAttributes.MESSAGING_SYSTEM;
+import static java.util.Arrays.asList;
 
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.instrumentation.testing.GlobalTraceUtil;
@@ -22,7 +23,6 @@ import io.opentelemetry.instrumentation.testing.junit.AgentInstrumentationExtens
 import io.opentelemetry.instrumentation.testing.junit.InstrumentationExtension;
 import io.opentelemetry.sdk.testing.assertj.AttributeAssertion;
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -113,7 +113,7 @@ public abstract class AbstractSpringPulsarTest {
       AttributeKey.stringKey("messaging.pulsar.message.type");
 
   protected List<AttributeAssertion> publishAttributes() {
-    return Arrays.asList(
+    return asList(
         equalTo(MESSAGING_SYSTEM, "pulsar"),
         equalTo(MESSAGING_OPERATION, "publish"),
         equalTo(MESSAGING_DESTINATION_NAME, OTEL_TOPIC),
@@ -125,7 +125,7 @@ public abstract class AbstractSpringPulsarTest {
   }
 
   protected List<AttributeAssertion> processAttributes() {
-    return Arrays.asList(
+    return asList(
         equalTo(MESSAGING_SYSTEM, "pulsar"),
         equalTo(MESSAGING_OPERATION, "process"),
         satisfies(MESSAGING_MESSAGE_BODY_SIZE, AbstractLongAssert::isNotNegative),
@@ -134,7 +134,7 @@ public abstract class AbstractSpringPulsarTest {
   }
 
   protected List<AttributeAssertion> receiveAttributes() {
-    return Arrays.asList(
+    return asList(
         equalTo(MESSAGING_SYSTEM, "pulsar"),
         equalTo(MESSAGING_OPERATION, "receive"),
         equalTo(MESSAGING_DESTINATION_NAME, OTEL_TOPIC),

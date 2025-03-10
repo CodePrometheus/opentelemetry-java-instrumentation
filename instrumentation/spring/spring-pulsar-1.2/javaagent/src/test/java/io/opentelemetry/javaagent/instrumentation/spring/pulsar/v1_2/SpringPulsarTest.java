@@ -10,7 +10,7 @@ import static io.opentelemetry.api.trace.SpanKind.INTERNAL;
 import static io.opentelemetry.api.trace.SpanKind.PRODUCER;
 import static io.opentelemetry.instrumentation.testing.util.TelemetryDataUtil.orderByRootSpanKind;
 
-import io.opentelemetry.instrumentation.spring.pulsar.v1_0.AbstractSpringPulsarTest;
+import io.opentelemetry.instrumentation.spring.pulsar.v1_2.AbstractSpringPulsarTest;
 import io.opentelemetry.sdk.trace.data.LinkData;
 import io.opentelemetry.sdk.trace.data.SpanData;
 import java.util.concurrent.atomic.AtomicReference;

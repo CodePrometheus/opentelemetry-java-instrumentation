@@ -7,6 +7,7 @@ muzzle {
     group.set("org.springframework.pulsar")
     module.set("spring-pulsar")
     versions.set("[1.2.0,)")
+    assertInverse.set(true)
   }
 }
 
@@ -15,7 +16,6 @@ dependencies {
   implementation(project(":instrumentation:pulsar:pulsar-2.8:javaagent"))
 
   testInstrumentation(project(":instrumentation:pulsar:pulsar-2.8:javaagent"))
-
   testImplementation(project(":instrumentation:spring:spring-pulsar-1.2:testing"))
 
   testLibrary("org.springframework.pulsar:spring-pulsar:1.2.0")
